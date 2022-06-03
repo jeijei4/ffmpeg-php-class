@@ -158,7 +158,7 @@ class FFmpeg
 				}
 				$options [] = "-".$option." ".join(',',$items);
 			} else {
-				$options [] = "-".$option." ".strval($values);
+				$options [] = "-".$option . (is_null($values)?"":" ".strval($values));
 			}
 		}
 		$this->command = $this->ffmpeg." ".join(' ',$options)." ".$output . $this->STD;
